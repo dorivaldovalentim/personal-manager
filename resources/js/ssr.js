@@ -4,8 +4,6 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import createServer from '@inertiajs/vue3/server';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-import '@tabler/core/dist/js/tabler.min.js';
-import '@tabler/core/dist/css/tabler.min.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 

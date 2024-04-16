@@ -1,13 +1,7 @@
 <script setup>
 import Layout from "@/Layouts/Auth.vue";
 import { Link, useForm } from "@inertiajs/vue3";
-import AuthenticationCard from "@/Components/AuthenticationCard.vue";
-import AuthenticationCardLogo from "@/Components/AuthenticationCardLogo.vue";
-import Checkbox from "@/Components/Checkbox.vue";
 import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
 
 defineProps({
   canResetPassword: Boolean,
@@ -37,12 +31,14 @@ const submit = () => {
     <div class="card card-md">
       <div class="card-body">
         <h2 class="h2 text-center mb-4">Iniciar Sessão</h2>
+
         <form @submit.prevent="submit">
           <div class="mb-3">
             <label class="form-label">E-mail</label>
             <input
               v-model="form.email"
               type="email"
+              :class="{ 'is-invalid': form.errors.email }"
               class="form-control"
               placeholder="exemplo@email.com"
               required
@@ -50,7 +46,7 @@ const submit = () => {
               autocomplete="username"
             />
 
-            <InputError class="mt-2" :message="form.errors.email" />
+            <InputError :message="form.errors.email" />
           </div>
 
           <div class="mb-2">
@@ -67,6 +63,7 @@ const submit = () => {
               <input
                 v-model="form.password"
                 type="password"
+                :class="{ 'is-invalid': form.errors.password }"
                 class="form-control"
                 placeholder="Senha"
                 required
@@ -101,8 +98,8 @@ const submit = () => {
                 </a>
               </span>
             </div>
-						
-            <InputError class="mt-2" :message="form.errors.password" />
+
+            <InputError :message="form.errors.password" />
           </div>
 
           <div class="mb-2">

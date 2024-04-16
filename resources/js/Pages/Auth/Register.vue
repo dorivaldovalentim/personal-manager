@@ -35,29 +35,31 @@ const submit = () => {
             <input
               v-model="form.name"
               type="text"
+              :class="{ 'is-invalid': form.errors.name }"
               class="form-control"
               placeholder="Seu nome"
               required
               autofocus
             />
-          </div>
 
-          <InputError class="mt-2" :message="form.errors.name" />
+            <InputError :message="form.errors.name" />
+          </div>
 
           <div class="mb-3">
             <label class="form-label">E-mail</label>
             <input
               v-model="form.email"
               type="email"
+              :class="{ 'is-invalid': form.errors.email }"
               class="form-control"
               placeholder="exemplo@email.com"
               required
               autofocus
               autocomplete="username"
             />
-          </div>
 
-          <InputError class="mt-2" :message="form.errors.email" />
+            <InputError :message="form.errors.email" />
+          </div>
 
           <div class="mb-2">
             <label class="form-label"> Senha </label>
@@ -66,11 +68,13 @@ const submit = () => {
               <input
                 v-model="form.password"
                 type="password"
+                :class="{ 'is-invalid': form.errors.password }"
                 class="form-control"
                 placeholder="Senha"
                 required
                 autocomplete="current-password"
               />
+              
               <span class="input-group-text">
                 <a
                   href="#"
@@ -99,6 +103,8 @@ const submit = () => {
                 </a>
               </span>
             </div>
+
+            <InputError :message="form.errors.password" />
           </div>
 
           <div class="mb-2">
@@ -108,6 +114,7 @@ const submit = () => {
               <input
                 v-model="form.password_confirmation"
                 type="password"
+                :class="{ 'is-invalid': form.errors.password_confirmation }"
                 class="form-control"
                 placeholder="Confirme a Senha"
                 required
@@ -142,7 +149,7 @@ const submit = () => {
               </span>
             </div>
 
-            <InputError class="mt-2" :message="form.errors.password_confirmation" />
+            <InputError :message="form.errors.password_confirmation" />
           </div>
 
           <!-- <div class="mb-2">
