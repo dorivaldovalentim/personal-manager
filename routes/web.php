@@ -25,3 +25,6 @@ Route::middleware([
 
     Route::resource('/tasks', TaskController::class)->only(['index', 'store', 'update', 'destroy']);
 });
+
+
+require __DIR__ . '/admin.php';
