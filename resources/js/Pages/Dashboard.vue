@@ -1,6 +1,5 @@
 <script setup>
 import Layout from "@/Layouts/App.vue";
-import Welcome from "@/Components/Welcome.vue";
 </script>
 
 <template>
