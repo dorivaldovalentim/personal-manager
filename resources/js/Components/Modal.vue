@@ -10,7 +10,7 @@ defineProps({
 <template>
   <div
     class="modal modal-blur fade"
-    id="modal-team"
+    id="modal-theme"
     tabindex="-1"
     role="dialog"
     aria-hidden="true"
