@@ -212,8 +212,8 @@ const logout = () => {
                 </Link>
               </li>
 
-              <li :class="{ active: route().current('dashboard') }" class="nav-item">
-                <a :href="route('dashboard')" class="nav-link">
+              <li :class="{ active: route().current('tasks.index') }" class="nav-item">
+                <a :href="route('tasks.index')" class="nav-link">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"
                     ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <svg
@@ -295,6 +295,9 @@ const logout = () => {
           <slot name="body" />
         </div>
       </div>
+
+      <!-- Page additional content -->
+      <slot name="additional" />
 
       <footer class="footer footer-transparent d-print-none">
         <div class="container-xl">
