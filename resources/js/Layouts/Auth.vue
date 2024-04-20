@@ -1,6 +1,13 @@
 <script setup>
+import { Link } from "@inertiajs/vue3";
+import { onMounted } from "vue";
+
 defineProps({
   title: String,
+});
+
+onMounted(() => {
+  document.body.classList.remove("justify-content-center");
 });
 </script>
 
@@ -10,7 +17,7 @@ defineProps({
   <div class="page page-center">
     <div class="container container-tight py-4">
       <div class="text-center mb-4">
-        <Link to="route('home')" class="navbar-brand navbar-brand-autodark">
+        <Link :href="route('home')" class="navbar-brand navbar-brand-autodark">
           <img src="@/logo.svg" height="36" alt="" />
         </Link>
       </div>

@@ -1,13 +1,18 @@
 <script setup>
 import { Head, Link, router } from "@inertiajs/vue3";
+import { onMounted } from "vue";
 
 defineProps({
   title: String,
 });
 
+onMounted(() => {
+  document.body.classList.remove("justify-content-center");
+});
+
 const logout = () => {
   router.post(route("logout"));
-  window.location = route("home")
+  window.location = route("home");
 };
 </script>
 
