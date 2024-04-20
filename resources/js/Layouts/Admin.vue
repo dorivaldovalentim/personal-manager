@@ -6,7 +6,7 @@ defineProps({
 });
 
 const logout = () => {
-  router.post(route("logout"));
+  router.post(route("admin.logout"));
 };
 </script>
 
