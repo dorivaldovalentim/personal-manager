@@ -32,7 +32,7 @@ const logout = () => {
         <h1
           class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"
         >
-          <Link :href="route('dashboard')">
+          <Link :href="route('admin.dashboard')">
             <img
               src="@/logo.svg"
               width="110"
@@ -167,8 +167,8 @@ const logout = () => {
                 style="background-image: url(https://placehold.co/50x50)"
               ></span>
               <div class="d-none d-xl-block ps-2">
-                <div>Dorivaldo Valentim</div>
-                <div class="mt-1 small text-muted">dorivaldovalentim@gmail.com</div>
+                <div>{{ $page.props.auth.admin.name }}</div>
+                <div class="mt-1 small text-muted">{{ $page.props.auth.admin.email }}</div>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -186,7 +186,10 @@ const logout = () => {
         <div class="navbar">
           <div class="container-xl">
             <ul class="navbar-nav">
-              <li :class="{ active: route().current('admin.dashboard') }" class="nav-item">
+              <li
+                :class="{ active: route().current('admin.dashboard') }"
+                class="nav-item"
+              >
                 <Link :href="route('dashboard')" class="nav-link">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"
                     ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -211,36 +214,8 @@ const logout = () => {
                   <span class="nav-link-title"> Página Inicial </span>
                 </Link>
               </li>
-
-              <li :class="{ active: route().current('tasks.index') }" class="nav-item">
-                <a :href="route('tasks.index')" class="nav-link">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"
-                    ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="icon icon-tabler icons-tabler-outline icon-tabler-list-check"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M3.5 5.5l1.5 1.5l2.5 -2.5" />
-                      <path d="M3.5 11.5l1.5 1.5l2.5 -2.5" />
-                      <path d="M3.5 17.5l1.5 1.5l2.5 -2.5" />
-                      <path d="M11 6l9 0" />
-                      <path d="M11 12l9 0" />
-                      <path d="M11 18l9 0" />
-                    </svg>
-                  </span>
-                  <span class="nav-link-title"> Tarefas </span>
-                </a>
-              </li>
             </ul>
+
             <div
               class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last"
             >
