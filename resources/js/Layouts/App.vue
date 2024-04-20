@@ -40,7 +40,7 @@ const logout = () => {
         >
           <Link :href="route('dashboard')">
             <img
-              src="@/logo.svg"
+              src="@/public/logo.svg"
               width="110"
               height="32"
               alt="Tabler"
