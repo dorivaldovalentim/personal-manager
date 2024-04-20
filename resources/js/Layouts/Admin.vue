@@ -7,6 +7,7 @@ defineProps({
 
 const logout = () => {
   router.post(route("admin.logout"));
+  window.location = route("home")
 };
 </script>
 
