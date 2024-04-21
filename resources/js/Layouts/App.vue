@@ -170,7 +170,14 @@ const logout = () => {
             >
               <span
                 class="avatar avatar-sm"
-                style="background-image: url(https://placehold.co/50x50)"
+                :style="{
+                  backgroundImage: `url(
+                    ${
+                      $page.props.auth.user.profile_photo_path ??
+                      $page.props.auth.user.profile_photo_url
+                    }
+                  )`,
+                }"
               ></span>
               <div class="d-none d-xl-block ps-2">
                 <div>{{ $page.props.auth.user.name }}</div>
