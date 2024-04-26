@@ -81,10 +81,53 @@ const reset = () => {
   <Layout title="Tarefas">
     <template #header>
       <div class="row g-2 align-items-center">
-        <div class="col">
+        <div class="col-3">
           <!-- Page pre-title -->
           <div class="page-pretitle">Overview</div>
           <h2 class="page-title">Tarefas</h2>
+        </div>
+
+        <div class="col-4 mx-auto">
+          <!-- Page pre-title -->
+          <div class="page-pretitle mb-1">Progresso das tarefas</div>
+          <div class="progress rounded-5">
+            <div
+              :class="{
+                'bg-danger':
+                  (tasks.filter((item) => item.status).length * 100) / tasks.length < 25,
+                'bg-warning':
+                  (tasks.filter((item) => item.status).length * 100) / tasks.length < 50,
+                'bg-info':
+                  (tasks.filter((item) => item.status).length * 100) / tasks.length < 75,
+                'bg-success':
+                  (tasks.filter((item) => item.status).length * 100) / tasks.length <=
+                  100,
+              }"
+              class="progress-bar overflow-visible"
+              :style="{
+                width: `${
+                  (tasks.filter((item) => item.status).length * 100) / tasks.length
+                }%`,
+              }"
+              role="progressbar"
+              :aria-valuenow="
+                (tasks.filter((item) => item.status).length * 100) / tasks.length
+              "
+              aria-valuemin="0"
+              aria-valuemax="100"
+              :aria-label="`${
+                (tasks.filter((item) => item.status).length * 100) / tasks.length
+              }% Completas`"
+            >
+              <span
+                >{{
+                  Math.floor(
+                    (tasks.filter((item) => item.status).length * 100) / tasks.length
+                  )
+                }}% Completas</span
+              >
+            </div>
+          </div>
         </div>
 
         <div class="col-auto ms-auto d-print-none">
@@ -260,3 +303,9 @@ const reset = () => {
     </template>
   </Layout>
 </template>
+
+<style scoped>
+.progress {
+  height: 15px;
+}
+</style>
