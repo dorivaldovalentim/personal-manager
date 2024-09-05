@@ -89,7 +89,13 @@ const reset = () => {
 
         <div class="col-4 mx-auto">
           <!-- Page pre-title -->
-          <div class="page-pretitle mb-1">Progresso das tarefas</div>
+          <div class="page-pretitle mb-1 d-flex justify-content-between">
+            <span>Progresso das tarefas</span>
+            <span>
+              {{ tasks.filter((item) => item.status).length }}/{{ tasks.length }}
+            </span>
+          </div>
+
           <div class="progress rounded-5">
             <div
               :class="{
